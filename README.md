@@ -47,7 +47,7 @@ In order to improve franchisees' inventory management, a sales projection model 
 We were also tasked with creating a dashboard to serve the marketing team, aimed at enhancing understanding of user behavior on our website. I developed a customized dashboard in Google Analytics focused on in-depth analysis of key interactions. This project involved meticulously configuring goals, events, and segments to capture and visualize critical data such as Clicks, Product Interests, Basket Retention, among various other viewing and access indicators. Not only did this project significantly improve our ability to understand and react to user behavior in real-time, but it also increased the efficiency of marketing and sales teams by providing instant access to real-time insights
 
 
-## Creater Contents (Soon)
+## Create Contents (Soon)
 
 - [Data Science YouTube]()
 
