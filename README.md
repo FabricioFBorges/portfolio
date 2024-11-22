@@ -5,7 +5,7 @@
 ## Education
 - B.D., Data Science | Universidade Federal Mato Grosso do Sul								       		
 - B.D., Accounting	| Faculdade Estácio	 			        		
-- M.D., Mathematics | The University of Texas at Dallas (_May 2017_)
+- M.D., Mathematics | Universidade Federal Mato Grosso do Sul	(ongoing)
 
 ## Work Experience
 **Data Analyst  @ Bridge & Co (_May 2023 - Present_)**
