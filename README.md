@@ -8,7 +8,7 @@
 - M.D., Mathematics | Universidade Federal Mato Grosso do Sul	(ongoing)
 
 ## Work Experience
-**Data Analyst  @ Bridge & Co (_May 2023 - Present_)**
+**Data Engineer  @ Bridge & Co (_May 2023 - Present_)**
 - Development of new dashboards in PowerBI;
 - Implementation of Databricks data pipelines;
 - Creation of Azure architecture;
