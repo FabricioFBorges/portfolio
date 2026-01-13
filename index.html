@@ -29,6 +29,7 @@
 
     *{ box-sizing: border-box; }
     html,body{ height: 100%; }
+    html{ scroll-behavior: smooth; }
     body{
       margin:0;
       font-family: var(--sans);
@@ -330,6 +331,8 @@
         <button class="pill" id="langToggle" aria-label="Alternar idioma">
           <span class="dot" aria-hidden="true"></span>
           <span id="langLabel">PT</span>
+        <a class="btn small" href="#projects" id="projectsBtn">Projetos</a>
+
         </button>
 
         <!-- Troque os links abaixo pelos seus -->
@@ -636,6 +639,150 @@
       </article>
     
     </section>
+    <!-- Projects -->
+<div class="section-title" id="projects">
+  <h2 data-lang="pt">Projetos</h2>
+  <h2 data-lang="en">Projects</h2>
+  <div class="hint">portfolio • case studies</div>
+</div>
+
+<section class="section">
+  <!-- UI/UX Dashboards -->
+  <article class="item">
+    <div class="item-head">
+      <div>
+        <div class="role" data-lang="pt">Projetos UI / UX Dashboards</div>
+        <div class="role" data-lang="en">UI / UX Dashboard Projects</div>
+        <div class="company" data-lang="pt">Power BI • Storytelling • Design System</div>
+        <div class="company" data-lang="en">Power BI • Storytelling • Design System</div>
+      </div>
+      <div class="meta">UI/UX</div>
+    </div>
+
+    <ul class="bullets" data-lang="pt">
+      <li>Dashboards executivos com foco em narrativa (storytelling), clareza e adoção.</li>
+      <li>Padrões de layout, tipografia, cores e componentes (consistência entre páginas).</li>
+      <li>Performance de visuais, medidas DAX padronizadas e UX aplicada ao consumo.</li>
+    </ul>
+
+    <ul class="bullets" data-lang="en">
+      <li>Executive dashboards focused on storytelling, clarity, and adoption.</li>
+      <li>Layout, typography, colors, and component standards for consistency.</li>
+      <li>Visual performance, standardized DAX measures, and UX for BI consumption.</li>
+    </ul>
+
+    <div class="skills">
+      <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">UX/UI</span>
+      <span class="tag">Storytelling</span><span class="tag">Design System</span>
+    </div>
+
+    <!-- Placeholder cards -->
+    <div class="grid" style="margin-top:14px;">
+      <div class="item" style="background:rgba(255,255,255,.02);">
+        <div class="role" data-lang="pt">Projeto 1 (adicione aqui)</div>
+        <div class="role" data-lang="en">Project 1 (add here)</div>
+        <div class="company" data-lang="pt">Problema → solução → impacto</div>
+        <div class="company" data-lang="en">Problem → solution → impact</div>
+      </div>
+      <div class="item" style="background:rgba(255,255,255,.02);">
+        <div class="role" data-lang="pt">Projeto 2 (adicione aqui)</div>
+        <div class="role" data-lang="en">Project 2 (add here)</div>
+        <div class="company" data-lang="pt">Link, stack e resultados</div>
+        <div class="company" data-lang="en">Links, stack and outcomes</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- GenAI / ML -->
+  <article class="item">
+    <div class="item-head">
+      <div>
+        <div class="role" data-lang="pt">Projetos GEN AI & Machine Learning</div>
+        <div class="role" data-lang="en">GenAI & Machine Learning Projects</div>
+        <div class="company" data-lang="pt">Python • Modelagem • Pipelines • Avaliação</div>
+        <div class="company" data-lang="en">Python • Modeling • Pipelines • Evaluation</div>
+      </div>
+      <div class="meta">GenAI/ML</div>
+    </div>
+
+    <ul class="bullets" data-lang="pt">
+      <li>Modelos preditivos e previsões (ex.: projeção de vendas) com pipeline reprodutível.</li>
+      <li>Integração de dados, feature engineering e avaliação com métricas adequadas.</li>
+      <li>Aplicações com IA generativa (quando aplicável), foco em qualidade e governança.</li>
+    </ul>
+
+    <ul class="bullets" data-lang="en">
+      <li>Predictive models and forecasting with reproducible pipelines.</li>
+      <li>Data integration, feature engineering, and metric-driven evaluation.</li>
+      <li>GenAI applications when applicable, with quality and governance in mind.</li>
+    </ul>
+
+    <div class="skills">
+      <span class="tag">Python</span><span class="tag">ML</span><span class="tag">Forecasting</span>
+      <span class="tag">Pipelines</span><span class="tag">Evaluation</span>
+    </div>
+
+    <div class="grid" style="margin-top:14px;">
+      <div class="item" style="background:rgba(255,255,255,.02);">
+        <div class="role" data-lang="pt">Projeto 1 (adicione aqui)</div>
+        <div class="role" data-lang="en">Project 1 (add here)</div>
+        <div class="company" data-lang="pt">Dataset, abordagem e resultado</div>
+        <div class="company" data-lang="en">Dataset, approach and result</div>
+      </div>
+      <div class="item" style="background:rgba(255,255,255,.02);">
+        <div class="role" data-lang="pt">Projeto 2 (adicione aqui)</div>
+        <div class="role" data-lang="en">Project 2 (add here)</div>
+        <div class="company" data-lang="pt">Link do repo / demo</div>
+        <div class="company" data-lang="en">Repo / demo link</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Architecture & Engineering -->
+  <article class="item">
+    <div class="item-head">
+      <div>
+        <div class="role" data-lang="pt">Projeto Arquitetura e Engenharia</div>
+        <div class="role" data-lang="en">Architecture & Engineering Projects</div>
+        <div class="company" data-lang="pt">Cloud • Airflow • Git • Governança</div>
+        <div class="company" data-lang="en">Cloud • Airflow • Git • Governance</div>
+      </div>
+      <div class="meta">Platform</div>
+    </div>
+
+    <ul class="bullets" data-lang="pt">
+      <li>Arquitetura em cloud e lakehouse, com padrões de camadas (Bronze/Silver/Gold) e governança.</li>
+      <li>Orquestração (Airflow), versionamento (Git) e práticas de entrega/observabilidade.</li>
+      <li>Qualidade de dados, dicionário, padronização de métricas e consistência entre produtos de dados.</li>
+    </ul>
+
+    <ul class="bullets" data-lang="en">
+      <li>Cloud and lakehouse architecture with layered patterns (Bronze/Silver/Gold) and governance.</li>
+      <li>Orchestration (Airflow), version control (Git), delivery and observability practices.</li>
+      <li>Data quality, data dictionary, metric standardization, and consistency across data products.</li>
+    </ul>
+
+    <div class="skills">
+      <span class="tag">Cloud</span><span class="tag">Airflow</span><span class="tag">Git</span>
+      <span class="tag">Governance</span><span class="tag">Lakehouse</span><span class="tag">Data Quality</span>
+    </div>
+
+    <div class="grid" style="margin-top:14px;">
+      <div class="item" style="background:rgba(255,255,255,.02);">
+        <div class="role" data-lang="pt">Projeto 1 (adicione aqui)</div>
+        <div class="role" data-lang="en">Project 1 (add here)</div>
+        <div class="company" data-lang="pt">Arquitetura, padrões e impacto</div>
+        <div class="company" data-lang="en">Architecture, standards and impact</div>
+      </div>
+      <div class="item" style="background:rgba(255,255,255,.02);">
+        <div class="role" data-lang="pt">Projeto 2 (adicione aqui)</div>
+        <div class="role" data-lang="en">Project 2 (add here)</div>
+        <div class="company" data-lang="pt">Link, stack e resultados</div>
+        <div class="company" data-lang="en">Links, stack and outcomes</div>
+      </div>
+    </div>
+  </article>
+</section>
 
     <footer>
       <div data-lang="pt">© <span id="year"></span> Fabrício Borges • Portfólio</div>
@@ -672,6 +819,9 @@
       label.textContent = (lang === "en") ? "EN" : "PT";
       localStorage.setItem("portfolio_lang", lang);
       document.documentElement.lang = (lang === "en") ? "en" : "pt-BR";
+      const projectsBtn = document.getElementById("projectsBtn");
+      if (projectsBtn) projectsBtn.textContent = (lang === "en") ? "Projects" : "Projetos";
+
     }
 
     const saved = localStorage.getItem("portfolio_lang");
