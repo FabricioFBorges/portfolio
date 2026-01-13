@@ -2,21 +2,684 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Fabrício Borges | Portfólio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Fabrício Borges | Data Engineer & Analytics</title>
+  <meta name="description" content="Portfólio de Fabrício Borges — Data Engineer / Data Scientist — Databricks, Azure, Power BI, SQL, Python, Data Governance e Analytics Engineering." />
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      padding: 40px;
+    :root{
+      --bg: #0b1220;
+      --panel: rgba(255,255,255,.04);
+      --panel2: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.10);
+      --text: #e7eefc;
+      --muted: rgba(231,238,252,.72);
+      --muted2: rgba(231,238,252,.55);
+      --accent: #38bdf8;
+      --accent2:#a78bfa;
+      --good:#34d399;
+      --warn:#fbbf24;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --radius: 18px;
+      --radius2: 24px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
     }
-    h1 { color: #38bdf8; }
+
+    *{ box-sizing: border-box; }
+    html,body{ height: 100%; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 20% 10%, rgba(56,189,248,.14), transparent 55%),
+                  radial-gradient(900px 700px at 90% 20%, rgba(167,139,250,.12), transparent 55%),
+                  radial-gradient(900px 900px at 50% 100%, rgba(52,211,153,.08), transparent 60%),
+                  var(--bg);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ opacity: .92; }
+
+    .wrap{
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 18px 80px;
+    }
+
+    /* Topbar */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 12px 0;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,18,32,.78), rgba(11,18,32,.35));
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .topbar-inner{
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 18px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap: 10px;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+    .badge{
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: 999px;
+      color: var(--muted);
+    }
+
+    .actions{
+      display:flex; align-items:center; gap: 10px; flex-wrap: wrap;
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-size: 14px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.18);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.18);
+    }
+    .btn.primary{
+      border-color: rgba(56,189,248,.35);
+      background: linear-gradient(135deg, rgba(56,189,248,.18), rgba(167,139,250,.10));
+    }
+    .btn.small{ padding: 9px 10px; font-size: 13px; }
+    .pill{
+      display:inline-flex; align-items:center; gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: 13px;
+      font-family: var(--mono);
+      cursor:pointer;
+    }
+    .dot{
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--good);
+      box-shadow: 0 0 0 4px rgba(52,211,153,.10);
+    }
+
+    /* Hero */
+    .hero{
+      padding: 34px 0 22px;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    @media (max-width: 920px){
+      .hero{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .card-inner{ padding: 24px; }
+
+    .kicker{
+      display:flex; align-items:center; gap: 10px; flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 13px;
+      font-family: var(--mono);
+    }
+
+    h1{
+      margin: 14px 0 10px;
+      font-size: 42px;
+      line-height: 1.05;
+      letter-spacing: -0.6px;
+    }
+    @media (max-width: 520px){
+      h1{ font-size: 34px; }
+    }
+    .subtitle{
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 70ch;
+      margin: 0 0 18px;
+    }
+
+    .quick{
+      display:flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 16px;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap: 8px;
+      padding: 9px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .chip b{ color: var(--text); font-weight: 600; }
+
+    /* Sidebar card */
+    .side-list{
+      display:grid;
+      gap: 12px;
+    }
+    .mini{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 16px;
+    }
+    .mini h3{
+      margin:0 0 6px;
+      font-size: 14px;
+      letter-spacing: .2px;
+    }
+    .mini p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Sections */
+    .section{
+      margin-top: 18px;
+      display:grid;
+      gap: 14px;
+    }
+    .section-title{
+      display:flex; align-items:center; justify-content: space-between; gap: 10px;
+      margin: 24px 0 8px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: .2px;
+    }
+    .section-title .hint{
+      color: var(--muted2);
+      font-size: 13px;
+      font-family: var(--mono);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 920px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .item{
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 18px;
+    }
+    .item-head{
+      display:flex; align-items:flex-start; justify-content: space-between; gap: 12px;
+      margin-bottom: 8px;
+    }
+    .role{
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+    .meta{
+      color: var(--muted);
+      font-size: 13px;
+      font-family: var(--mono);
+    }
+    .company{
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 2px;
+    }
+    .bullets{
+      margin: 10px 0 0 18px;
+      color: var(--muted);
+    }
+    .bullets li{ margin: 7px 0; }
+
+    .skills{
+      display:flex; flex-wrap: wrap; gap: 8px;
+      margin-top: 12px;
+    }
+    .tag{
+      padding: 7px 9px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-family: var(--mono);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 34px;
+      color: var(--muted2);
+      font-size: 13px;
+      display:flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 18px;
+    }
+
+    /* Toggle language */
+    [data-lang]{ display:none; }
+    body.lang-pt [data-lang="pt"]{ display:block; }
+    body.lang-en [data-lang="en"]{ display:block; }
+
+    /* Accessibility */
+    .sr-only{
+      position:absolute !important;
+      width:1px; height:1px;
+      padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0);
+      white-space:nowrap; border:0;
+    }
   </style>
 </head>
-<body>
-  <h1>Fabrício Borges</h1>
-  <p>Data Scientist | Analytics | BI</p>
-  <p>Portfólio em construção 🚀</p>
+
+<body class="lang-pt">
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);box-shadow:0 10px 22px rgba(0,0,0,.18);">
+          <span style="font-family:var(--mono);font-weight:800;color:var(--accent);">FB</span>
+        </span>
+        <div>
+          <div>Fabrício Borges</div>
+          <div class="badge" style="margin-top:4px;">Data Engineer • Analytics • BI</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="pill" id="langToggle" aria-label="Alternar idioma">
+          <span class="dot" aria-hidden="true"></span>
+          <span id="langLabel">PT</span>
+        </button>
+
+        <!-- Troque os links abaixo pelos seus -->
+        <a class="btn small" href="https://github.com/FabricioBorges" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn small" href="#" target="_blank" rel="noreferrer" id="linkedinLink">LinkedIn</a>
+        <a class="btn primary small" href="mailto:seuemail@exemplo.com" id="emailLink">Contato</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="card">
+        <div class="card-inner">
+          <div class="kicker">
+            <span class="badge">Databricks • Azure • SQL • Python • Power BI</span>
+            <span class="badge">Data Governance • Analytics Engineering • Storytelling</span>
+          </div>
+
+          <!-- PT -->
+          <div data-lang="pt">
+            <h1>Engenharia de Dados e Analytics com foco em impacto no negócio.</h1>
+            <p class="subtitle">
+              Atuo na construção de pipelines confiáveis, modelagem analítica e dashboards executivos — conectando
+              dados, governança e decisões. Experiência com Databricks, Azure, Power BI e automação (Power Automate),
+              com forte cuidado em qualidade, padronização e experiência do usuário.
+            </p>
+
+            <div class="quick">
+              <div class="chip"><b>Atuação:</b> Data Engineer / Data Scientist</div>
+              <div class="chip"><b>Foco:</b> Lakehouse, BI, Governança</div>
+              <div class="chip"><b>Entrega:</b> D-1 e performance de indicadores</div>
+              <div class="chip"><b>Stack:</b> SQL • Python • Databricks • Power BI</div>
+            </div>
+          </div>
+
+          <!-- EN -->
+          <div data-lang="en">
+            <h1>Data Engineering & Analytics focused on business impact.</h1>
+            <p class="subtitle">
+              I build reliable pipelines, analytics models, and executive dashboards — connecting data, governance,
+              and decision-making. Hands-on experience with Databricks, Azure, Power BI, and automation (Power Automate),
+              with strong emphasis on quality, standardization, and user experience.
+            </p>
+
+            <div class="quick">
+              <div class="chip"><b>Role:</b> Data Engineer / Data Scientist</div>
+              <div class="chip"><b>Focus:</b> Lakehouse, BI, Governance</div>
+              <div class="chip"><b>Delivery:</b> D-1 visibility & KPI performance</div>
+              <div class="chip"><b>Stack:</b> SQL • Python • Databricks • Power BI</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side-list">
+        <!-- PT -->
+        <div class="mini" data-lang="pt">
+          <h3>Resumo rápido</h3>
+          <p><b>+3 anos</b> em dados, BI e automação, entregando pipelines, modelos e dashboards para escala nacional.</p>
+        </div>
+        <div class="mini" data-lang="pt">
+          <h3>Diferenciais</h3>
+          <p>Governança (dicionário, padrão DAX/modelagem), performance e UX/UI aplicado a BI.</p>
+        </div>
+        <div class="mini" data-lang="pt">
+          <h3>Interesses</h3>
+          <p>Lakehouse, Data Quality, Data Products, observabilidade e arquitetura em Azure/Databricks.</p>
+        </div>
+
+        <!-- EN -->
+        <div class="mini" data-lang="en">
+          <h3>Quick summary</h3>
+          <p><b>3+ years</b> across data, BI, and automation, delivering pipelines, models and dashboards at scale.</p>
+        </div>
+        <div class="mini" data-lang="en">
+          <h3>Strengths</h3>
+          <p>Governance (data dictionary, DAX/modeling standards), performance and UX/UI for BI.</p>
+        </div>
+        <div class="mini" data-lang="en">
+          <h3>Interests</h3>
+          <p>Lakehouse, data quality, data products, observability, and Azure/Databricks architecture.</p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Experience -->
+    <div class="section-title">
+      <h2 data-lang="pt">Experiência</h2>
+      <h2 data-lang="en">Experience</h2>
+      <div class="hint">impact • reliability • scale</div>
+    </div>
+
+    <section class="grid">
+      <article class="item">
+        <div class="item-head">
+          <div>
+            <div class="role" data-lang="pt">Data Engineer</div>
+            <div class="role" data-lang="en">Data Engineer</div>
+            <div class="company">Bridge & Co</div>
+          </div>
+          <div class="meta">May 2023 — Present</div>
+        </div>
+
+        <ul class="bullets" data-lang="pt">
+          <li>Desenvolvimento de dashboards executivos em Power BI com foco em storytelling e clareza de decisão.</li>
+          <li>Implementação de pipelines e camadas analíticas em Databricks (ingestão, transformação e consumo).</li>
+          <li>Desenho e evolução de arquitetura em Azure (boas práticas, governança e escalabilidade).</li>
+          <li>Criação de padrões e manual de boas práticas (modelagem, dicionário de dados e padronização DAX).</li>
+          <li>Automação de processos com Power Automate (RPA) integrando fluxos de negócio e dados.</li>
+        </ul>
+
+        <ul class="bullets" data-lang="en">
+          <li>Built executive Power BI dashboards with strong storytelling and decision clarity.</li>
+          <li>Implemented Databricks pipelines and analytics layers (ingestion, transformations, consumption).</li>
+          <li>Designed and improved Azure architecture (best practices, governance, scalability).</li>
+          <li>Created standards and best-practices documentation (modeling, data dictionary, DAX conventions).</li>
+          <li>Automated processes with Power Automate (RPA), connecting business workflows and data.</li>
+        </ul>
+
+        <div class="skills">
+          <span class="tag">Databricks</span><span class="tag">Azure</span><span class="tag">Power BI</span>
+          <span class="tag">SQL</span><span class="tag">DAX</span><span class="tag">Power Automate</span>
+          <span class="tag">UX/UI</span>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item-head">
+          <div>
+            <div class="role" data-lang="pt">Data Scientist</div>
+            <div class="role" data-lang="en">Data Scientist</div>
+            <div class="company">Connect.etc</div>
+          </div>
+          <div class="meta">Jun 2020 — Apr 2023</div>
+        </div>
+
+        <ul class="bullets" data-lang="pt">
+          <li>Criação de dashboards para suporte a mais de <b>360 franquias</b> em todo o Brasil.</li>
+          <li>Construção de processos de ETL com SQL Server + Power BI (Dataflows, Datasets e modelagem).</li>
+          <li>Conexões entre datasets Power BI e SQL Server; criação de consultas (incluindo MDX) para áreas estratégicas.</li>
+          <li>Estratégias de manutenção e jobs: análise de procedures, triggers, tabelas e views para estabilidade.</li>
+          <li>Modelo de projeção de vendas com Python (FBProphet) baseado em características de produtos.</li>
+        </ul>
+
+        <ul class="bullets" data-lang="en">
+          <li>Built dashboards supporting <b>360+ franchises</b> across Brazil.</li>
+          <li>Developed ETL processes using SQL Server + Power BI (Dataflows, Datasets, and modeling).</li>
+          <li>Connected Power BI datasets to SQL Server; wrote queries (including MDX) for strategic teams.</li>
+          <li>Designed maintenance and job strategies by analyzing procedures, triggers, tables and views.</li>
+          <li>Developed sales forecasting models in Python (FBProphet) based on product characteristics.</li>
+        </ul>
+
+        <div class="skills">
+          <span class="tag">Power BI</span><span class="tag">SQL Server</span><span class="tag">ETL</span>
+          <span class="tag">Dataflows</span><span class="tag">MDX</span><span class="tag">Python</span><span class="tag">FBProphet</span>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item-head">
+          <div>
+            <div class="role" data-lang="pt">Data Analyst</div>
+            <div class="role" data-lang="en">Data Analyst</div>
+            <div class="company">Unimed</div>
+          </div>
+          <div class="meta">Jun 2020 — Apr 2023</div>
+        </div>
+
+        <ul class="bullets" data-lang="pt">
+          <li>Desenvolvimento e manutenção de relatórios e dashboards para apoiar decisões estratégicas.</li>
+          <li>Criação de ETL e camadas de consumo via QlikView.</li>
+          <li>Manutenção e atualização de QVDs e QVWs, garantindo consistência e integridade do modelo.</li>
+          <li>Documentação e treinamentos para usuários e times, acelerando adoção e padronização.</li>
+        </ul>
+
+        <ul class="bullets" data-lang="en">
+          <li>Developed and maintained reports and dashboards to support strategic decision-making.</li>
+          <li>Built ETL and consumption layers using QlikView.</li>
+          <li>Maintained and updated QVDs and QVWs, ensuring model consistency and integrity.</li>
+          <li>Created documentation and delivered training to users and teams, improving adoption and standards.</li>
+        </ul>
+
+        <div class="skills">
+          <span class="tag">QlikView</span><span class="tag">ETL</span><span class="tag">Data Modeling</span>
+          <span class="tag">Documentation</span><span class="tag">Training</span>
+        </div>
+      </article>
+
+      <!-- Highlights / What I deliver -->
+      <article class="item">
+        <div class="item-head">
+          <div>
+            <div class="role" data-lang="pt">O que eu entrego</div>
+            <div class="role" data-lang="en">What I deliver</div>
+            <div class="company" data-lang="pt">de ponta a ponta</div>
+            <div class="company" data-lang="en">end-to-end</div>
+          </div>
+          <div class="meta">Data → Insight → Action</div>
+        </div>
+
+        <ul class="bullets" data-lang="pt">
+          <li><b>Lakehouse & Pipelines:</b> ingestão, transformação, qualidade e confiabilidade.</li>
+          <li><b>Modelagem Analítica:</b> métricas padronizadas, camada Gold e performance.</li>
+          <li><b>BI Executivo:</b> KPIs, storytelling, usabilidade e governança para evitar divergência.</li>
+          <li><b>Automação:</b> fluxos e integrações com Power Automate para acelerar operações.</li>
+        </ul>
+
+        <ul class="bullets" data-lang="en">
+          <li><b>Lakehouse & Pipelines:</b> ingestion, transformation, data quality and reliability.</li>
+          <li><b>Analytics Modeling:</b> standardized metrics, Gold layer and performance.</li>
+          <li><b>Executive BI:</b> KPIs, storytelling, usability and governance to avoid KPI drift.</li>
+          <li><b>Automation:</b> Power Automate flows and integrations to accelerate operations.</li>
+        </ul>
+
+        <div class="skills">
+          <span class="tag">Lakehouse</span><span class="tag">Data Quality</span><span class="tag">Governance</span>
+          <span class="tag">Analytics</span><span class="tag">BI</span><span class="tag">Automation</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- Education -->
+    <div class="section-title">
+      <h2 data-lang="pt">Formação</h2>
+      <h2 data-lang="en">Education</h2>
+      <div class="hint">academic foundation</div>
+    </div>
+
+    <section class="grid">
+      <article class="item">
+        <div class="item-head">
+          <div>
+            <div class="role" data-lang="pt">B.D., Data Science</div>
+            <div class="role" data-lang="en">B.D., Data Science</div>
+            <div class="company">Universidade Federal de Mato Grosso do Sul</div>
+          </div>
+          <div class="meta">Completed</div>
+        </div>
+        <ul class="bullets" data-lang="pt">
+          <li>Base sólida em estatística, modelagem, análise de dados e fundamentos de ciência de dados.</li>
+        </ul>
+        <ul class="bullets" data-lang="en">
+          <li>Strong foundations in statistics, modeling, analytics, and core data science principles.</li>
+        </ul>
+      </article>
+
+      <article class="item">
+        <div class="item-head">
+          <div>
+            <div class="role" data-lang="pt">B.D., Accounting</div>
+            <div class="role" data-lang="en">B.D., Accounting</div>
+            <div class="company">Faculdade Estácio</div>
+          </div>
+          <div class="meta">Completed</div>
+        </div>
+        <ul class="bullets" data-lang="pt">
+          <li>Visão de negócio e finanças aplicada à análise e indicadores para tomada de decisão.</li>
+        </ul>
+        <ul class="bullets" data-lang="en">
+          <li>Business and finance perspective applied to analytics and decision-making KPIs.</li>
+        </ul>
+      </article>
+
+      <article class="item">
+        <div class="item-head">
+          <div>
+            <div class="role" data-lang="pt">M.D., Mathematics</div>
+            <div class="role" data-lang="en">M.D., Mathematics</div>
+            <div class="company">Universidade Federal de Mato Grosso do Sul</div>
+          </div>
+          <div class="meta" data-lang="pt">Em andamento</div>
+          <div class="meta" data-lang="en">Ongoing</div>
+        </div>
+        <ul class="bullets" data-lang="pt">
+          <li>Aprofundamento em fundamentos matemáticos para modelagem, otimização e raciocínio analítico.</li>
+        </ul>
+        <ul class="bullets" data-lang="en">
+          <li>Advanced mathematical foundations for modeling, optimization, and analytical thinking.</li>
+        </ul>
+      </article>
+
+      <article class="item">
+        <div class="item-head">
+          <div>
+            <div class="role" data-lang="pt">Próximos passos</div>
+            <div class="role" data-lang="en">Next steps</div>
+            <div class="company" data-lang="pt">como evoluir esse site</div>
+            <div class="company" data-lang="en">how to evolve this site</div>
+          </div>
+          <div class="meta">v1</div>
+        </div>
+        <ul class="bullets" data-lang="pt">
+          <li>Adicionar seção de <b>Projetos</b> com links, prints e stack por projeto.</li>
+          <li>Incluir <b>cases</b> (problema → solução → impacto) em formato de cards.</li>
+          <li>Subir CV em PDF e linkar no botão principal.</li>
+        </ul>
+        <ul class="bullets" data-lang="en">
+          <li>Add a <b>Projects</b> section with links, screenshots and stack per project.</li>
+          <li>Include <b>case studies</b> (problem → solution → impact) as cards.</li>
+          <li>Upload your resume as PDF and link it as a primary button.</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      <div data-lang="pt">© <span id="year"></span> Fabrício Borges • Portfólio</div>
+      <div data-lang="en">© <span id="year2"></span> Fabrício Borges • Portfolio</div>
+      <div style="font-family:var(--mono);">Built with HTML/CSS • GitHub Pages</div>
+    </footer>
+  </div>
+
+  <script>
+    // ====== CONFIGURE THESE (optional but recommended) ======
+    // 1) Put your LinkedIn URL here:
+    const LINKEDIN_URL = "https://www.linkedin.com/in/fabrício-borges-2655861a5/";
+    // 2) Put your email here:
+    const EMAIL = "ffbcontabeis@gmail.com";
+
+    // Apply config links
+    const linkedin = document.getElementById("linkedinLink");
+    const email = document.getElementById("emailLink");
+    if (LINKEDIN_URL && LINKEDIN_URL.includes("linkedin.com")) linkedin.href = LINKEDIN_URL;
+    if (EMAIL && EMAIL.includes("@")) email.href = `mailto:${EMAIL}`;
+
+    // Year
+    const y = new Date().getFullYear();
+    document.getElementById("year").textContent = y;
+    document.getElementById("year2").textContent = y;
+
+    // Language toggle
+    const btn = document.getElementById("langToggle");
+    const label = document.getElementById("langLabel");
+
+    function setLang(lang){
+      document.body.classList.remove("lang-pt","lang-en");
+      document.body.classList.add(lang === "en" ? "lang-en" : "lang-pt");
+      label.textContent = (lang === "en") ? "EN" : "PT";
+      localStorage.setItem("portfolio_lang", lang);
+      document.documentElement.lang = (lang === "en") ? "en" : "pt-BR";
+    }
+
+    const saved = localStorage.getItem("portfolio_lang");
+    setLang(saved || "pt");
+
+    btn.addEventListener("click", () => {
+      const current = document.body.classList.contains("lang-en") ? "en" : "pt";
+      setLang(current === "en" ? "pt" : "en");
+    });
+  </script>
 </body>
 </html>
